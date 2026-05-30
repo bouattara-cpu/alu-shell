@@ -1,2 +1,2 @@
 #!/bin/bash
-tr -cd "a-zA-Z"
+grep -o "[a-zA-Z]"
