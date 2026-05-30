@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -amp
+ls -a | grep -v '^\.$' | grep -v '^\.\.$'
