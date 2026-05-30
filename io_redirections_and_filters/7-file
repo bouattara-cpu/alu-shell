@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Best School" > '\"Best School"\'\
+printf "Best School" > \x22\x5c\x22Best\x20School\x22\x5c\x22
