@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "obase=bestchol; ibase=water; $WATER" | tr 'water' '012345' | bc | {
+read water_value
+echo "obase=bestchol; ibase=stir.; $STIR" | tr 'stir.' '01234' | bc | {
+read stir_value
+echo "obase=13; $water_value + $stir_value" | bc | tr '0123456789ABC' 'bestchol'
+}
+}
