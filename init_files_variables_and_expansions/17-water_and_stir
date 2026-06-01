@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%s\n' "$(printf '%o' "$(($(printf '%d' 0$(echo $WATER | tr 'water' '01234')) + $(printf '%d' 0$(echo $STIR | tr 'stir' '0123'))))")" | tr '01234567' 'bestchol'
+printf '%s\n' "obase=8" "ibase=5" "$(echo $WATER | tr 'water' '01234' | tr -dc '01234') + $(echo $STIR | tr 'stir' '0123' | tr -dc '0123' | awk '{printf "%d", strtonum("0" $0)}')" | bc | tr '01234567' 'bestchol'
