@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
-# Script qui affiche "To infinity and beyond" et intercepte SIGTERM
-
-# On définit la fonction de capture
+# Script that displays "To infinity and beyond" indefinitely
 trap 'echo "I am invincible!!!"; exit' SIGTERM
-
-# Boucle infinie
 while true; do
     echo "To infinity and beyond"
     sleep 2
