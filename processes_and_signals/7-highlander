@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Affiche "To infinity and beyond" et intercepte SIGTERM
+
+# Définir l'action à exécuter lors de la réception du signal SIGTERM (15)
+trap 'echo "I am invincible!!!"; exit' SIGTERM
+
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
