@@ -1,12 +1,2 @@
 #!/bin/bash
-python3 -c "
-import sys
-counts = {}
-f = open(sys.argv[1])
-f.readline()
-for line in f:
-    host = line.split('\t')[0]
-    counts[host] = counts.get(host, 0) + 1
-for host in sorted(counts, key=counts.get, reverse=True)[:11]:
-    print(host)
-" "$1"
+python3 -c "import sys;d={};[d.update({l.split('\t')[0]:d.get(l.split('\t')[0],0)+1}) for l in open(sys.argv[1]).readlines()[1:]];[print(h) for h in sorted(d,key=d.get,reverse=True)[:11]]" "$1"
