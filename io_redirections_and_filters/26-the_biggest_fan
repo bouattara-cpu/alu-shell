@@ -1,2 +1,12 @@
 #!/bin/bash
-cut -f1 "$1" | tail -n +2 | sort | uniq -c | sort -rn | head -11 | tr -s ' ' | cut -c2- | cut -d' ' -f2
+python3 -c "
+import sys
+counts = {}
+f = open(sys.argv[1])
+f.readline()
+for line in f:
+    host = line.split('\t')[0]
+    counts[host] = counts.get(host, 0) + 1
+for host in sorted(counts, key=counts.get, reverse=True)[:11]:
+    print(host)
+" "$1"
