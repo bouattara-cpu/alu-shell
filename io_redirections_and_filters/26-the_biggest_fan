@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 -c "import sys;d={};[d.update({l.split('\t')[0]:d.get(l.split('\t')[0],0)+1}) for l in open(sys.argv[1]).readlines()[1:]];[print(h) for h in sorted(d,key=d.get,reverse=True)[:11]]" "$1"
+cut -f1 "$1" | tail -n +2 | sort | uniq -c | sort -rn | head -11 | tr -s ' ' | cut -d' ' -f3
